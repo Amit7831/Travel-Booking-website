@@ -1,0 +1,85 @@
+import './App.css'
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+// Layouts
+import MainLayout from './layouts/MainLayout';
+import AdminLayout from './layouts/AdminLayout';
+
+// Pages
+import Home from './pages/public/Home';
+import About from './pages/public/About';
+import Login from './pages/public/Login';
+import Register from './pages/public/Register';
+import Profile from './pages/user/Profile';
+import AdminDashboard from './pages/admin/AdminDashboard';
+
+// Route Guards
+import ProtectedRoute from './route/ProtectedRoute';
+import PublicRoute from './route/PublicRoute';
+import Services from './pages/public/Services';
+import Contact from "./pages/public/Contact";
+import AdminContact from './pages/admin/AdminContact';
+import Adminservice from './pages/admin/Adminservice';
+import AdminCars from './pages/admin/AdminCars';
+import CarDetails from './pages/public/CarDetails';
+import MyBookings from './pages/public/MyBookings';
+import AdminBooking from './pages/admin/AdminBooking';
+import Search from './pages/public/SearchBox';
+
+function App() {
+  return (
+    <Routes>
+      {/* Public Routes with Main Layout */}
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="service" element={<Services />} />
+        <Route path='cars/:id' element={<CarDetails/>}/>
+        <Route path="contact" element={<Contact/>}/>
+        <Route path="/my-bookings" element={<MyBookings />} />
+        <Route path='/search' element={<Search/>}/>
+
+        {/* Only accessible if NOT logged in */}
+        <Route 
+          path="login" 
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          } 
+        />
+        <Route 
+          path="register" 
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          } 
+        />
+        
+        {/* Only accessible if logged in */}
+        <Route 
+          path="profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
+      </Route>
+
+      {/* Admin Routes with Admin Layout */}
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminDashboard />} />
+        <Route path='contacts' element={<AdminContact />} />
+        <Route path='car' element={<AdminCars />} />
+        <Route path='booking' element={<AdminBooking/>}/>
+      </Route>
+      
+      {/* Fallback */}
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
+}
+
+export default App;

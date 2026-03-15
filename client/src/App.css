@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.normal-input{
+    @apply border p-1 text-lg;
+  }
+  
+  .normal{
+  @apply border p-1 text-lg;
+  
+}
+.input{
+  
+  @apply border p-1 text-lg;
+}
+
+@media(max-width:640px){
+  a.active{
+    background-color: black;
+    color: white;
+  }
+}
+
+
+/* Modern thin scrollbar */
+.custom-scroll::-webkit-scrollbar {
+  /* height: 6px;
+  width: 6px; */
+  display: none;
+}
+
+/* .custom-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #645645;
+} */
