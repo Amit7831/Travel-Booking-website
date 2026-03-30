@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="py-30 h-dvh  bg-linear-to-r from-cyan-100 via-blue-200 to-indigo-300">
+    <div className="py-30 h-dvh  bg-linear-to-r from-cyan-100 via-blue-200 to-indigo-300 ">
     <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow">
       <h1 className="text-3xl font-bold text-gray-800 mb-4">About Us</h1>
       <p className="text-gray-600 text-lg leading-relaxed mb-4">

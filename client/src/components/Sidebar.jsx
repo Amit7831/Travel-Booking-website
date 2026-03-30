@@ -20,7 +20,7 @@ const Sidebar = () => {
       <div className="p-4 border-t border-gray-700">
         <button 
           onClick={logout} 
-          className="w-full bg-red-600 py-2 rounded hover:bg-red-700"
+          className="w-full bg-red-600 py-2 rounded hover:bg-red-700 "
         >
           Logout
         </button>
